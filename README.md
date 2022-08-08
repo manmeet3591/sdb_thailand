@@ -1,19 +1,18 @@
 # Satellite Derived Bathymetry with IceSAT-2 LiDAR Data : Case Study in the coast of Thailand
-การศึกษาการทำแบบจำลองความลึกท้องน้ำตื้น (SATELLITE DERIVED BATHYMETRY) โดยใช้ภาพถ่ายดาวเทียมและค่าระดับจากไลดาร์บนดาวเทียม กรณีศึกษาพื้นที่ชายฝั่งทะเลประเทศไทย 
-โครงงานทางวิศวกรรมประจำปีการศึกษา 2564 ของนายเทพชัย ศรีน้อย และ รศ.ดร.ไพศาล สันติธรรมนนท์ ภาควิชาวิศวกรรมสำรวจ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย 
-
+SATELLITE DERIVED BATHYMETRY modeling study using satellite imagery and level values from satellite Lidar. Case studies of coastal areas of Thailand
+Engineering project for the academic year 2021 of Mr. Thepchai Srinoi and Assoc. Prof. Dr. Paisan Santithamnon Department of Surveying Engineering Faculty of Engineering Chulalongkorn University
 
 ![Screenshot (419)](https://user-images.githubusercontent.com/88705136/171320963-0ac44fd4-2d7f-4b20-82e5-cd66bb4cf946.png)
 
-ศึกษาการทำแบบจำลองความลึกท้องน้ำตื้น (Bathymetry Model) บริเวณชายฝั่งทะเลประเทศไทย จากภาพถ่ายดาวเทียม Sentinel-2 และค่าระดับจากระบบไลดาร์บนดาวเทียม ICESat-2 ผ่านการเขียน python programming จัดการข้อมูลและทำแบบจำลอง โดยนำเข้าข้อมูลภาพถ่ายจากระบบ Google Earth Engine
+To study the modeling of shallow water depth (Bathymetry Model) in the coastal area of ​​Thailand. Based on Sentinel-2 satellite imagery and levels from the ICESat-2 Lidar system through python programming, data manipulation and modeling. By importing the image data from the Google Earth Engine system.
 
-ความลึกตัวอย่างทำได้จากการคัดเลือกค่าระดับท้องน้ำและผิวน้ำจาก point cloud จาก ATLAS LiDAR บนดาวเทียม ICESat-2 นำข้อมูลดิบมานำเข้า pandas dataframe หากโหลดข้อมูลเริ่มต้นแบบ hdf5 file นำเข้า python ด้วย library h5py แล้วนำเข้า dataframe เพื่อความสะดวกในการจัดการ
+The sample depth is obtained by selecting the water level and surface values ​​from the point cloud from the ATLAS LiDAR on the ICESat-2 satellite. The raw data is imported into the pandas dataframe. If the initial data is loaded as hdf5 file, import python with library h5py, and then import the dataframe to ease of management
 
-ประเด็นที่สนใจคือเรื่องอัลกอริทึมทำแบบจำลอง (Stumpf or Lyzenga Algorithm) กับ แนวทางการตรวจแก้ภาพ (Sun Glint or Dark Object Subtraction Atmospheric Correction) ในพื้นที่ศึกษาหาดเจ้าสำราญ จังหวัดเพชรบุรี หาดท้ายเหมือง จังหวัดพังงา และเกาะหมาก จังหวัดตราด
+The subjects of interest were the Stumpf or Lyzenga Algorithm and the Sun Glint or Dark Object Subtraction Atmospheric Correction in Hat Chao Samran Study Area. Phetchaburi Province Thai Mueang Beach, Phang Nga Province and Koh Mak, Trat Province
 
-ผลเบื้องต้นนั้น Lyzenga Algorithm มีความเหมาะสมกับพื้นที่แรก กับ Stumpf Algorithm มีความเหมาะสมกับสองพื้นที่หลัง โดยการเลือกภาพแบบไม่ต้องตรวจแก้ให้ผลลัผธ์ที่ดีกว่า ดังนั้นควรเลือกภาพให้ดีตั้งแต่เริ่มต้น นำเข้าทำแบบจำลองได้เลย ความถูกต้องอยู่ในระดับ 1 ถึง 3 เมตร
+As a preliminary result, the Lyzenga Algorithm is suitable for the first area and the Stumpf Algorithm is suitable for the latter two areas. By selecting images without editing for better results. Therefore, choose images well from the start. You can import it to make a model. Accuracy is on the scale of 1 to 3 meters.
 
-การศึกษานี้ยังมีประเด็นที่สามารถศึกษาต่อได้มากมาย ทั้งเรื่องการลด bias ของการวิจัย การเลี่ยง manual selection การตรวจแก้ภาพและค่าระดับให้ดีขึ้นพร้อมต่อการทำแบบจำลอง รูปแบบอัลกอริทึมที่เข้ากับธรรมชาติได้ดีกว่าสองอัลกอริทึมที่นำมาวิจัย
+This study also has many areas that can be further studied. Both research bias reduction, manual selection avoidance, image correction and level improvements are ready for modeling. The algorithm model is more natural than the two algorithms researched.
 
-ปัจจุบันนี้ เทพชัย ศรีน้อย กำลังเป็นนิสิตระดับปริญญาโท ภาควิชาวิศวกรรมสำรวจ คณะวิศวกรรมสำรวจ จุฬาลงกรณ์มหาวิทยาลัย มีความสนใจในงานวิจัยทางด้าน Remote Sensing สำหรับสิ่งแวดล้อมทางกายภาพ ทั้งด้านแหล่งน้ำ เมือง การใช้ประโยชน์ที่ดินและสิ่งปกคลุมดิน วิทยาศาสตร์โลก นอกจากนี้ยังสนใจเรื่อง Geodesy และ Cartography ด้วย 
-ช่องทางติดต่อเจ้าของผลงาน thepchaisrinoi@gmail.com
+Thepchai Srinoi is currently a master's degree student. Department of Surveying Engineering Faculty of Surveying Engineering Chulalongkorn University Interested in research in Remote Sensing for the physical environment. both in terms of water resources, cities, land use and land cover world science He is also interested in Geodesy and Cartography.
+Ways to contact the owner of the work thepchaisrinoi@gmail.com
